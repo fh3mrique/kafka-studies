@@ -1,5 +1,7 @@
 package io.github.fhl.icompras.pedidos.model;
 
+import io.github.fhl.icompras.pedidos.controller.dto.DadosPagamentoDTO;
+import io.github.fhl.icompras.pedidos.controller.dto.ItemPedidoDTO;
 import io.github.fhl.icompras.pedidos.model.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,6 +11,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "pedido")
@@ -45,4 +48,12 @@ public class Pedido {
 
     @Column(name = "url_nf")
     private String urlNotaFiscal;
+
+    @Transient
+    private DadosPagamento dadosPagamento;
+
+    @OneToMany(mappedBy = "codigoPedido")
+    private List<ItemPedido> itens;
+
+
 }
