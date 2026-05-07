@@ -33,7 +33,7 @@ public class Pedido {
     @Column(name = "total", precision = 16, scale = 2)
     private BigDecimal total;
 
-    @Column(name = "chave_pagamento", nullable = false)
+    @Column(name = "chave_pagamento")
     private String chavePagamento;
 
     @Column(name = "observacoes")
@@ -52,7 +52,7 @@ public class Pedido {
     @Transient
     private DadosPagamento dadosPagamento;
 
-    @OneToMany(mappedBy = "codigoPedido")
+    @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
 
 
