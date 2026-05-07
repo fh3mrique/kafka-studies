@@ -1,5 +1,6 @@
 package io.github.fhl.icompras.pedidos.sevice;
 
+import io.github.fhl.icompras.pedidos.model.Pedido;
 import io.github.fhl.icompras.pedidos.repository.ItemPedidoRepository;
 import io.github.fhl.icompras.pedidos.repository.PedidoRepository;
 import io.github.fhl.icompras.pedidos.validator.PedidoValidator;
@@ -13,6 +14,10 @@ public class PedidoService {
     private final PedidoRepository repository;
     private final ItemPedidoRepository itemPedidoRepository;
     private final PedidoValidator validator;
+
+    public Pedido criarPedido(Pedido pedido){
+
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package io.github.fhl.icompras.pedidos.controller;
 
 import io.github.fhl.icompras.pedidos.controller.dto.NovoPedidoDTO;
+import io.github.fhl.icompras.pedidos.controller.mappers.PedidoMapper;
 import io.github.fhl.icompras.pedidos.sevice.PedidoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 class PedidoController {
 
     private final PedidoService service;
+    private final PedidoMapper mapper;
 
-    public ResponseEntity criar (@RequestBody NovoPedidoDTO dto) {
+    public ResponseEntity<Object> criar (@RequestBody NovoPedidoDTO dto) {
 
-        return null;
+        var pedido = mapper.map(dto);
+        var novoPedido = service.criarPedido(pedido);
+        return ResponseEntity.ok(novoPedido.getCodigo());
     }
 
 }
