@@ -17,3 +17,11 @@ spring:
 
 server:
   port: 8080
+
+
+icompras:
+  pedidos:
+    clients:
+      produtos:
+        url: 'http:localhost:8081/produtos'
+      clients: 'http:localhost:8081/produtos'
